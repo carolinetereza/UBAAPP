@@ -142,7 +142,7 @@ export function BeamsBackground({
         animate();
 
         return () => {
-            observer.disconnect();
+            if (observer) observer.disconnect();
             window.removeEventListener("resize", updateCanvasSize);
             if (animationFrameRef.current) {
                 cancelAnimationFrame(animationFrameRef.current);
