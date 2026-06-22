@@ -88,18 +88,17 @@ export default function Home() {
 
       {/* ═══════════════ HEADER ═══════════════ */}
       <header className="site-header">
-        <div className="container header-inner">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
-            <Link href="/" className="logo-link">
-              <Image src="/images/uba_logo.png" alt="UBA APP" width={120} height={60} style={{ objectFit: 'contain' }} priority />
-            </Link>
+        <div className="container header-inner" style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          
+          <nav className="desktop-nav">
+            <a href="#formulario" className="nav-link">Motorista</a>
+            <a href="#" onClick={handleEmBreve} className="nav-link">Passageiro</a>
+            <a href="#" onClick={handleEmBreve} className="nav-link">Empresa</a>
+          </nav>
 
-            <nav className="desktop-nav">
-              <a href="#formulario" className="nav-link">Motorista</a>
-              <a href="#" onClick={handleEmBreve} className="nav-link">Passageiro</a>
-              <a href="#" onClick={handleEmBreve} className="nav-link">Empresa</a>
-            </nav>
-          </div>
+          <Link href="/" className="logo-link" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+            <Image src="/images/uba_logo_new.png" alt="UBA APP" width={120} height={60} style={{ objectFit: 'contain' }} priority />
+          </Link>
 
           <div className="header-right">
             <a 
@@ -437,12 +436,12 @@ export default function Home() {
       {/* ═══════════════ FOOTER ═══════════════ */}
       <footer className="site-footer">
         <div className="container">
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
+            <Image src="/images/uba_logo_new.png" alt="UBA APP" width={180} height={70} style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+          </div>
           <div className="footer-grid">
             {/* Brand */}
             <div className="footer-brand">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <img src="/images/uba_logo.png" alt="UBA APP" style={{ height: '60px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
-              </div>
               <p>O app de mobilidade feito para Ubatuba. Segurança, preço justo e respeito por quem vive e visita a cidade.</p>
               <div className="social-links">
                 <a href="https://www.instagram.com/UBA_APP" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
