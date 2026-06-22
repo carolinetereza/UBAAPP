@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ShinyButton } from '../components/ui/shiny-button';
 import { BeamsBackground } from '../components/ui/beams-background';
 import gsap from 'gsap';
@@ -97,7 +96,7 @@ export default function Home() {
           </nav>
 
           <Link href="/" className="logo-link" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-            <Image src="/images/uba_logo_new.png" alt="UBA APP" width={120} height={60} style={{ objectFit: 'contain' }} priority />
+            <img src="/images/uba_logo_new.png" alt="UBA APP" style={{ height: '60px', objectFit: 'contain' }} />
           </Link>
 
           <div className="header-right">
@@ -163,21 +162,17 @@ export default function Home() {
           <div className="hero-apps">
             <p className="hero-apps-label">Em breve na Google Play e App Store</p>
             <div className="hero-store-buttons">
-              <Image
+              <img
                 src="/images/4-google.png-BkyOWf3u.webp"
                 alt="Google Play"
                 className="store-img"
-                width={150}
-                height={45}
-                priority
+                style={{ height: '45px', width: 'auto' }}
               />
-              <Image
+              <img
                 src="/images/5-apple.png-BOo2m4m-.webp"
                 alt="App Store"
                 className="store-img"
-                width={150}
-                height={45}
-                priority
+                style={{ height: '45px', width: 'auto' }}
               />
             </div>
           </div>
@@ -437,7 +432,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
-            <Image src="/images/uba_logo_new.png" alt="UBA APP" width={180} height={70} style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/uba_logo_new.png" alt="UBA APP" style={{ height: '70px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
           </div>
           <div className="footer-grid">
             {/* Brand */}
