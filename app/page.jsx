@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShinyButton } from '../components/ui/shiny-button';
 import { BeamsBackground } from '../components/ui/beams-background';
 import gsap from 'gsap';
@@ -51,23 +52,7 @@ export default function Home() {
       });
     });
 
-    // Advanced GSAP Particles
-    const particles = gsap.utils.toArray('.advanced-particle');
-    particles.forEach(p => {
-      gsap.set(p, {
-        x: () => Math.random() * window.innerWidth,
-        y: () => Math.random() * window.innerHeight,
-        opacity: () => Math.random() * 0.5 + 0.1
-      });
-      gsap.to(p, {
-        x: () => `+=${Math.random() * 200 - 100}`,
-        y: () => `+=${Math.random() * 200 - 100}`,
-        duration: () => Math.random() * 5 + 5,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1
-      });
-    });
+    // Removed unused particle logic
   }, { scope: container });
 
   const handleMouseMove3D = (e) => {
@@ -106,7 +91,7 @@ export default function Home() {
         <div className="container header-inner">
           <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
             <Link href="/" className="logo-link">
-              <img src="/images/uba_logo.png" alt="UBA APP" style={{ height: '60px', objectFit: 'contain' }} />
+              <Image src="/images/uba_logo.png" alt="UBA APP" width={120} height={60} style={{ objectFit: 'contain' }} priority />
             </Link>
 
             <nav className="desktop-nav">
@@ -179,15 +164,21 @@ export default function Home() {
           <div className="hero-apps">
             <p className="hero-apps-label">Em breve na Google Play e App Store</p>
             <div className="hero-store-buttons">
-              <img
+              <Image
                 src="/images/4-google.png-BkyOWf3u.webp"
                 alt="Google Play"
                 className="store-img"
+                width={150}
+                height={45}
+                priority
               />
-              <img
+              <Image
                 src="/images/5-apple.png-BOo2m4m-.webp"
                 alt="App Store"
                 className="store-img"
+                width={150}
+                height={45}
+                priority
               />
             </div>
           </div>
@@ -372,9 +363,9 @@ export default function Home() {
               >
                 <option value="" disabled>Como ficou sabendo do UBA APP?</option>
                 <option value="Instagram/Facebook">Instagram / Facebook</option>
+                <option value="Grupo/Whatsapp">Grupo / Whatsapp</option>
                 <option value="Indicação">Indicação de amigo</option>
                 <option value="Rua/Panfleto">Rua / Panfleto</option>
-                <option value="TikTok">TikTok</option>
                 <option value="Outros">Outros</option>
               </select>
 
@@ -395,7 +386,7 @@ export default function Home() {
         
         <div className="container deadline-content">
           <div className="deadline-box gsap-fade-up">
-            <h3>Inscrições de parceiro fundador encerram em <strong className="accent-line">04/07/2026</strong></h3>
+            <h3>Inscrições de parceiro fundador encerram em <strong style={{ color: '#2774ae' }}>07/07/2026</strong></h3>
             <p>Depois disso, as condições exclusivas não estarão mais disponíveis e novas inscrições entram na fila padrão.</p>
           </div>
         </div>

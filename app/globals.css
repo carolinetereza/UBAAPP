@@ -679,7 +679,6 @@ img {
     url('/images/ubatuba_manifesto_bg.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 }
 
 .manifesto-content {

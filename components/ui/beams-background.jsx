@@ -119,21 +119,22 @@ export function BeamsBackground({
         function animate() {
             if (!canvas || !ctx) return;
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.filter = "blur(35px)";
+            if (isVisible) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            const totalBeams = beamsRef.current.length;
-            beamsRef.current.forEach((beam, index) => {
-                beam.y -= beam.speed;
-                beam.pulse += beam.pulseSpeed;
+                const totalBeams = beamsRef.current.length;
+                beamsRef.current.forEach((beam, index) => {
+                    beam.y -= beam.speed;
+                    beam.pulse += beam.pulseSpeed;
 
-                // Reset beam when it goes off screen
-                if (beam.y + beam.length < -100) {
-                    resetBeam(beam, index, totalBeams);
-                }
+                    // Reset beam when it goes off screen
+                    if (beam.y + beam.length < -100) {
+                        resetBeam(beam, index, totalBeams);
+                    }
 
-                drawBeam(ctx, beam);
-            });
+                    drawBeam(ctx, beam);
+                });
+            }
 
             animationFrameRef.current = requestAnimationFrame(animate);
         }
@@ -141,6 +142,7 @@ export function BeamsBackground({
         animate();
 
         return () => {
+            observer.disconnect();
             window.removeEventListener("resize", updateCanvasSize);
             if (animationFrameRef.current) {
                 cancelAnimationFrame(animationFrameRef.current);
@@ -170,9 +172,6 @@ export function BeamsBackground({
                     duration: 10,
                     ease: "easeInOut",
                     repeat: Number.POSITIVE_INFINITY,
-                }}
-                style={{
-                    backdropFilter: "blur(50px)",
                 }}
             />
 
