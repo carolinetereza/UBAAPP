@@ -64,9 +64,9 @@ export function LanguageSwitcher({ lang, onSwitch }) {
         .lang-chevron.open { transform: rotate(180deg); }
         .lang-dropdown {
           position: absolute; top: calc(100% + 8px); right: 0;
-          background: #0d1b35; border: 1px solid rgba(255,255,255,0.12);
+          background: #fff; border: 1px solid #e2e8f0;
           border-radius: 10px; overflow: hidden;
-          box-shadow: 0 12px 40px rgba(0,0,0,0.5); z-index: 9999; min-width: 130px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 9999; min-width: 130px;
           animation: lang-drop 0.18s ease forwards;
         }
         @keyframes lang-drop {
@@ -75,10 +75,10 @@ export function LanguageSwitcher({ lang, onSwitch }) {
         }
         .lang-option {
           display: flex; align-items: center; gap: 8px; padding: 10px 14px;
-          cursor: pointer; font-size: 0.82rem; font-weight: 600;
-          color: rgba(255,255,255,0.75); transition: background 0.15s, color 0.15s; white-space: nowrap;
+          cursor: pointer; font-size: 0.85rem; font-weight: 600;
+          color: #333; transition: background 0.15s, color 0.15s; white-space: nowrap;
         }
-        .lang-option:hover { background: rgba(39,116,174,0.18); color: #fff; }
+        .lang-option:hover { background: #f8fafc; color: #2774ae; }
         .lang-option.active { color: #2774ae; background: rgba(39,116,174,0.1); }
       `}</style>
 

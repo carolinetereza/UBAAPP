@@ -86,16 +86,6 @@ export default function Home() {
         <div className="container header-inner" style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
           <nav className="desktop-nav">
-            <a href="#formulario" className="nav-link">{t.navDriver}</a>
-            <a href="#" onClick={(e) => handleEmBreve(e, 'passageiro')} className="nav-link">{t.navPassenger}</a>
-            <a href="#" onClick={(e) => handleEmBreve(e, 'empresa')} className="nav-link">{t.navCompany}</a>
-          </nav>
-
-          <Link href="/" className="logo-link logo-header-link">
-            <img src="/images/uba_logo_new.png" alt="UBA APP" style={{ height: '60px', objectFit: 'contain' }} />
-          </Link>
-
-          <div className="header-right">
             <a
               href="#manifesto"
               className="badge-em-breve"
@@ -107,6 +97,16 @@ export default function Home() {
             >
               {t.navBadge}
             </a>
+            <a href="#formulario" className="nav-link">{t.navDriver}</a>
+            <a href="#" onClick={(e) => handleEmBreve(e, 'passageiro')} className="nav-link">{t.navPassenger}</a>
+            <a href="#" onClick={(e) => handleEmBreve(e, 'empresa')} className="nav-link">{t.navCompany}</a>
+          </nav>
+
+          <Link href="/" className="logo-link logo-header-link">
+            <img src="/images/uba_logo_new.png" alt="UBA APP" style={{ height: '60px', objectFit: 'contain' }} />
+          </Link>
+
+          <div className="header-right">
             <LanguageSwitcher lang={lang} onSwitch={setLang} />
             <button
               className="mobile-menu-btn"
@@ -143,9 +143,6 @@ export default function Home() {
             <a href="#" className="mobile-link" onClick={(e) => { setIsMobileMenuOpen(false); handleEmBreve(e, 'passageiro'); }}>{t.navPassenger}</a>
             <a href="#" className="mobile-link" onClick={(e) => { setIsMobileMenuOpen(false); handleEmBreve(e, 'empresa'); }}>{t.navCompany}</a>
           </nav>
-          <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'center' }}>
-            <LanguageSwitcher lang={lang} onSwitch={(l) => { setLang(l); setIsMobileMenuOpen(false); }} />
-          </div>
         </div>
       )}
 
