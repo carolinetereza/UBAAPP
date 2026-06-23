@@ -705,7 +705,7 @@ img {
 .manifesto-box {
   text-align: left;
   background: 
-    linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(135deg, #020813 0%, #061124 100%) padding-box,
     conic-gradient(from var(--border-angle), rgba(255,255,255,0.1) 80%, #1e90ff 90%, #8484ff 100%) border-box;
   padding: 48px;
   border-radius: var(--radius-lg);
