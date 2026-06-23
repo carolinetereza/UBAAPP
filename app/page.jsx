@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { ShinyButton } from '../components/ui/shiny-button';
 import { BeamsBackground } from '../components/ui/beams-background';
+import { ComingSoonModal } from '../components/ui/coming-soon-modal';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,6 +15,7 @@ if (typeof window !== 'undefined') {
 export default function Home() {
   const container = useRef();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [modalState, setModalState] = useState({ open: false, type: 'passageiro' });
   const [formData, setFormData] = useState({
     name: '',
     whatsapp: '',
@@ -77,13 +79,19 @@ export default function Home() {
     gsap.to(e.currentTarget, { rotateX: 0, rotateY: 0, ease: "power2.out", duration: 0.6 });
   };
 
-  const handleEmBreve = (e) => {
+  const handleEmBreve = (e, type = 'passageiro') => {
     e.preventDefault();
-    alert("Lançamento em breve em todas as plataformas");
+    setModalState({ open: true, type });
   };
 
   return (
     <div ref={container} style={{ overflowX: 'hidden' }}>
+
+      <ComingSoonModal
+        isOpen={modalState.open}
+        type={modalState.type}
+        onClose={() => setModalState({ open: false, type: modalState.type })}
+      />
 
       {/* ═══════════════ HEADER ═══════════════ */}
       <header className="site-header">
@@ -91,8 +99,8 @@ export default function Home() {
           
           <nav className="desktop-nav">
             <a href="#formulario" className="nav-link">Motorista</a>
-            <a href="#" onClick={handleEmBreve} className="nav-link">Passageiro</a>
-            <a href="#" onClick={handleEmBreve} className="nav-link">Empresa</a>
+            <a href="#" onClick={(e) => handleEmBreve(e, 'passageiro')} className="nav-link">Passageiro</a>
+            <a href="#" onClick={(e) => handleEmBreve(e, 'empresa')} className="nav-link">Empresa</a>
           </nav>
 
           <Link href="/" className="logo-link logo-header-link">
@@ -143,8 +151,8 @@ export default function Home() {
           </div>
           <nav>
             <a href="#formulario" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Motorista</a>
-            <a href="#" className="mobile-link" onClick={(e) => { setIsMobileMenuOpen(false); handleEmBreve(e); }}>Passageiro</a>
-            <a href="#" className="mobile-link" onClick={(e) => { setIsMobileMenuOpen(false); handleEmBreve(e); }}>Empresa</a>
+            <a href="#" className="mobile-link" onClick={(e) => { setIsMobileMenuOpen(false); handleEmBreve(e, 'passageiro'); }}>Passageiro</a>
+            <a href="#" className="mobile-link" onClick={(e) => { setIsMobileMenuOpen(false); handleEmBreve(e, 'empresa'); }}>Empresa</a>
           </nav>
         </div>
       )}
@@ -459,8 +467,8 @@ export default function Home() {
               <h4>Menu</h4>
               <ul className="footer-links-list">
                 <li><a href="#formulario">Motorista</a></li>
-                <li><a href="#" onClick={handleEmBreve}>Passageiro</a></li>
-                <li><a href="#" onClick={handleEmBreve}>Empresa</a></li>
+                <li><a href="#" onClick={(e) => handleEmBreve(e, 'passageiro')}>Passageiro</a></li>
+                <li><a href="#" onClick={(e) => handleEmBreve(e, 'empresa')}>Empresa</a></li>
               </ul>
             </div>
 
