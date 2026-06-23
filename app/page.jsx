@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ MANIFESTO ═══════════════ */}
-      <section id="manifesto" className="manifesto-section">
+      <BeamsBackground id="manifesto" className="manifesto-section" intensity="medium">
         <div className="container manifesto-content">
           <h2 className="manifesto-title gsap-fade-up">
             {t.manifestoTitle1}<br />
@@ -214,7 +214,7 @@ export default function Home() {
             {t.btnFounder}
           </ShinyButton>
         </div>
-      </section>
+      </BeamsBackground>
 
       {/* ═══════════════ NOVIDADE NA CIDADE ═══════════════ */}
       <section className="novidade-section">

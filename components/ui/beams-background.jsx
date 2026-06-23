@@ -24,6 +24,7 @@ export function BeamsBackground({
     className,
     intensity = "strong",
     children,
+    ...props
 }) {
     const canvasRef = useRef(null);
     const beamsRef = useRef([]);
@@ -166,6 +167,7 @@ export function BeamsBackground({
                 "relative min-h-screen w-full overflow-hidden bg-[#030814]",
                 className
             )}
+            {...props}
         >
             <canvas
                 ref={canvasRef}
