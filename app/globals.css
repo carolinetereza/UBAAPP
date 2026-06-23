@@ -1238,6 +1238,14 @@ img {
   }
   .header-inner {
     padding: 10px 0;
+    justify-content: flex-end;
+  }
+  .lang-switcher-wrapper {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
   }
 
   /* Hero */
