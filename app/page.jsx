@@ -95,7 +95,7 @@ export default function Home() {
             <a href="#" onClick={handleEmBreve} className="nav-link">Empresa</a>
           </nav>
 
-          <Link href="/" className="logo-link" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+          <Link href="/" className="logo-link logo-header-link">
             <img src="/images/uba_logo_new.png" alt="UBA APP" style={{ height: '60px', objectFit: 'contain' }} />
           </Link>
 

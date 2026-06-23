@@ -150,6 +150,23 @@ img {
   color: var(--primary);
 }
 
+/* Mobile: logo centralizado */
+.logo-header-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Desktop: logo no canto esquerdo */
+@media (min-width: 768px) {
+  .logo-header-link {
+    position: static;
+    left: auto;
+    transform: none;
+    order: -1;
+  }
+}
+
 .logo-text {
   display: flex;
   flex-direction: column;
