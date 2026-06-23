@@ -1120,6 +1120,13 @@ img {
   font-size: 0.82rem;
 }
 
+.footer-lang-switcher {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    DEADLINE SECTION
    ═══════════════════════════════════════════════════════════════ */
@@ -1337,6 +1344,9 @@ img {
   }
   .wa-btn {
     justify-content: center;
+  }
+  .footer-lang-switcher {
+    align-items: center;
   }
 }
 

@@ -347,7 +347,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="footer-lang-switcher" style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <div className="footer-lang-switcher">
                 <span style={{ fontSize: '0.65rem', color: '#888', letterSpacing: '1px', fontWeight: '700', marginBottom: '8px' }}>
                   {t.footerLangTitle}
                 </span>
