@@ -37,7 +37,7 @@ const FLAG_UK = () => (
   </svg>
 );
 
-export function LanguageSwitcher({ lang, onSwitch }) {
+export function LanguageSwitcher({ lang, onSwitch, variant = 'header' }) {
   const [open, setOpen] = useState(false);
 
   const options = [
@@ -47,6 +47,7 @@ export function LanguageSwitcher({ lang, onSwitch }) {
   ];
 
   const current = options.find(o => o.code === lang);
+  const isFooter = variant === 'footer';
 
   return (
     <>
@@ -80,19 +81,60 @@ export function LanguageSwitcher({ lang, onSwitch }) {
         }
         .lang-option:hover { background: #f8fafc; color: #2774ae; }
         .lang-option.active { color: #2774ae; background: rgba(39,116,174,0.1); }
+
+        /* Footer Variant */
+        .lang-btn.footer-variant {
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid rgba(255,255,255,0.4);
+          border-radius: 0;
+          padding: 0 16px 4px 0;
+          color: #fff;
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
+        .lang-btn.footer-variant:hover {
+          background: transparent;
+          border-color: #fff;
+        }
+        .lang-btn.footer-variant .lang-chevron {
+          color: #fff;
+          opacity: 1;
+          position: absolute;
+          right: 0;
+          top: 40%;
+          transform: translateY(-50%);
+        }
+        .lang-btn.footer-variant .lang-chevron.open {
+          transform: translateY(-50%) rotate(180deg);
+        }
+        
+        .lang-dropdown.footer-variant {
+          top: auto;
+          bottom: calc(100% + 8px);
+          animation: lang-drop-up 0.18s ease forwards;
+        }
+        @keyframes lang-drop-up {
+          from { opacity: 0; transform: translateY(6px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
       `}</style>
 
       <div className="lang-switcher">
-        <button className="lang-btn" onClick={() => setOpen(!open)} aria-label="Switch language">
-          {current && <current.Flag />}
-          {current?.label}
+        <button 
+          className={`lang-btn ${isFooter ? 'footer-variant' : ''}`} 
+          onClick={() => setOpen(!open)} 
+          aria-label="Switch language"
+        >
+          {!isFooter && current && <current.Flag />}
+          {isFooter ? current?.name : current?.label}
           <svg className={`lang-chevron${open ? ' open' : ''}`} width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
         </button>
 
         {open && (
-          <div className="lang-dropdown">
+          <div className={`lang-dropdown ${isFooter ? 'footer-variant' : ''}`}>
             {options.map(({ code, label, Flag, name }) => (
               <div
                 key={code}

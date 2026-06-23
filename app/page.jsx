@@ -352,31 +352,7 @@ export default function Home() {
                   {t.footerLangTitle}
                 </span>
                 <div style={{ position: 'relative', display: 'inline-block' }}>
-                  <select
-                    value={lang}
-                    onChange={(e) => setLang(e.target.value)}
-                    aria-label="Select language"
-                    style={{
-                      appearance: 'none',
-                      background: 'transparent',
-                      border: 'none',
-                      color: '#fff',
-                      fontSize: '0.9rem',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      outline: 'none',
-                      paddingRight: '16px',
-                      paddingBottom: '4px',
-                      borderBottom: '1px solid rgba(255,255,255,0.4)',
-                    }}
-                  >
-                    <option value="pt" style={{ color: '#000' }}>Português</option>
-                    <option value="es" style={{ color: '#000' }}>Español</option>
-                    <option value="en" style={{ color: '#000' }}>English</option>
-                  </select>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" style={{ position: 'absolute', right: 0, top: '40%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
-                    <polyline points="6 9 12 15 18 9"/>
-                  </svg>
+                  <LanguageSwitcher lang={lang} onSwitch={setLang} variant="footer" />
                 </div>
               </div>
             </div>
