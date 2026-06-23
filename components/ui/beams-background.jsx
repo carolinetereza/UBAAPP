@@ -57,6 +57,15 @@ export function BeamsBackground({
             );
         };
 
+        let isVisible = true;
+        let observer = null;
+        if (typeof IntersectionObserver !== 'undefined') {
+            observer = new IntersectionObserver(([entry]) => {
+                isVisible = entry.isIntersecting;
+            });
+            observer.observe(canvas);
+        }
+
         updateCanvasSize();
         window.addEventListener("resize", updateCanvasSize);
 
@@ -118,6 +127,7 @@ export function BeamsBackground({
 
         function animate() {
             if (!canvas || !ctx) return;
+            // isVisible is always defined above, so this is safe
 
             if (isVisible) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
