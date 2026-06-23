@@ -150,21 +150,8 @@ img {
   color: var(--primary);
 }
 
-/* Mobile: logo centralizado */
 .logo-header-link {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Desktop: logo no canto esquerdo */
-@media (min-width: 768px) {
-  .logo-header-link {
-    position: static;
-    left: auto;
-    transform: none;
-    order: -1;
-  }
+  order: -1;
 }
 
 .logo-text {
@@ -1238,14 +1225,6 @@ img {
   }
   .header-inner {
     padding: 10px 0;
-    justify-content: flex-end;
-  }
-  .lang-switcher-wrapper {
-    position: absolute;
-    left: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
   }
 
   /* Hero */
