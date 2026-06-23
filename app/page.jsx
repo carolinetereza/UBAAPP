@@ -77,6 +77,7 @@ export default function Home() {
         isOpen={modalState.open}
         type={modalState.type}
         lang={lang}
+        translations={t}
         onClose={() => setModalState({ open: false, type: modalState.type })}
       />
 
