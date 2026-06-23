@@ -1,0 +1,140 @@
+"use client";
+
+import { useState } from "react";
+
+const FLAG_BR = () => (
+  <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="22" height="16" rx="2" fill="#009C3B"/>
+    <polygon points="11,2 20,8 11,14 2,8" fill="#FEDF00"/>
+    <circle cx="11" cy="8" r="3.2" fill="#002776"/>
+    <path d="M7.9 8.6 Q11 6.5 14.1 8.6" stroke="white" strokeWidth="0.7" fill="none"/>
+  </svg>
+);
+
+const FLAG_ES = () => (
+  <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="22" height="16" rx="2" fill="#c60b1e"/>
+    <rect y="4" width="22" height="8" fill="#ffc400"/>
+    <rect width="22" height="4" fill="#c60b1e"/>
+    <rect y="12" width="22" height="4" fill="#c60b1e"/>
+  </svg>
+);
+
+export function LanguageSwitcher({ lang, onSwitch }) {
+  const [open, setOpen] = useState(false);
+
+  const options = [
+    { code: 'pt', label: 'PT', Flag: FLAG_BR },
+    { code: 'es', label: 'ES', Flag: FLAG_ES },
+  ];
+
+  const current = options.find(o => o.code === lang);
+
+  return (
+    <>
+      <style>{`
+        .lang-switcher {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+        }
+        .lang-btn {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.14);
+          border-radius: 8px;
+          padding: 5px 10px;
+          cursor: pointer;
+          color: rgba(255,255,255,0.85);
+          font-size: 0.78rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          transition: all 0.2s;
+          white-space: nowrap;
+        }
+        .lang-btn:hover {
+          background: rgba(255,255,255,0.12);
+          border-color: rgba(255,255,255,0.28);
+        }
+        .lang-chevron {
+          transition: transform 0.2s;
+          opacity: 0.6;
+        }
+        .lang-chevron.open { transform: rotate(180deg); }
+
+        .lang-dropdown {
+          position: absolute;
+          top: calc(100% + 8px);
+          right: 0;
+          background: #0d1b35;
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+          z-index: 9999;
+          min-width: 120px;
+          animation: lang-drop 0.18s ease forwards;
+        }
+        @keyframes lang-drop {
+          from { opacity: 0; transform: translateY(-6px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .lang-option {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 14px;
+          cursor: pointer;
+          font-size: 0.82rem;
+          font-weight: 600;
+          color: rgba(255,255,255,0.75);
+          transition: background 0.15s, color 0.15s;
+          white-space: nowrap;
+        }
+        .lang-option:hover {
+          background: rgba(39,116,174,0.18);
+          color: #fff;
+        }
+        .lang-option.active {
+          color: #2774ae;
+          background: rgba(39,116,174,0.1);
+        }
+      `}</style>
+
+      <div className="lang-switcher">
+        <button
+          className="lang-btn"
+          onClick={() => setOpen(!open)}
+          aria-label="Trocar idioma"
+        >
+          {current && <current.Flag />}
+          {current?.label}
+          <svg
+            className={`lang-chevron${open ? ' open' : ''}`}
+            width="10" height="10" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"
+          >
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        {open && (
+          <div className="lang-dropdown">
+            {options.map(({ code, label, Flag }) => (
+              <div
+                key={code}
+                className={`lang-option${lang === code ? ' active' : ''}`}
+                onClick={() => { onSwitch(code); setOpen(false); }}
+              >
+                <Flag />
+                {code === 'pt' ? 'Português' : 'Español'}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
