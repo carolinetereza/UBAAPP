@@ -294,13 +294,13 @@ export default function Home() {
             </div>
             <ShinyButton
               onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
-              style={{ width: '100%', maxWidth: '420px', margin: '0 auto', display: 'flex' }}
+              style={{ width: '100%', maxWidth: '450px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', fontSize: '1rem', fontWeight: '700', padding: '4px 0' }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', fontSize: '0.95rem', fontWeight: '800', letterSpacing: '1px', padding: '4px 0', width: '100%' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
-                {t.btnFounder}
+                <span style={{ whiteSpace: 'nowrap' }}>{t.btnFounder}</span>
               </div>
             </ShinyButton>
           </div>
