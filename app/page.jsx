@@ -390,6 +390,31 @@ export default function Home() {
           <div className="deadline-box gsap-fade-up">
             <h3>Inscrições de parceiro fundador encerram em <strong style={{ color: '#2774ae' }}>07/07/2026</strong></h3>
             <p>Depois disso, as condições exclusivas não estarão mais disponíveis e novas inscrições entram na fila padrão.</p>
+
+            {/* Separador */}
+            <div style={{ margin: '32px 0', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(39,116,174,0.5), transparent)' }} />
+
+            {/* Urgência */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '24px', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              Vagas limitadas — primeiros a garantir têm prioridade
+            </div>
+
+            {/* CTA */}
+            <ShinyButton
+              onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+              style={{ width: '100%', maxWidth: '420px', margin: '0 auto', display: 'flex' }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', fontSize: '1rem', fontWeight: '700', padding: '4px 0' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Quero ser parceiro fundador
+              </div>
+            </ShinyButton>
           </div>
         </div>
       </section>
