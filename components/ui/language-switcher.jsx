@@ -54,13 +54,13 @@ export function LanguageSwitcher({ lang, onSwitch }) {
         .lang-switcher { position: relative; display: inline-flex; align-items: center; }
         .lang-btn {
           display: flex; align-items: center; gap: 6px;
-          background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+          background: rgba(10,30,61,0.08); border: 1px solid rgba(10,30,61,0.2);
           border-radius: 8px; padding: 5px 10px; cursor: pointer;
-          color: rgba(255,255,255,0.85); font-size: 0.78rem; font-weight: 700;
+          color: #0a1e3d; font-size: 0.78rem; font-weight: 700;
           letter-spacing: 0.5px; transition: all 0.2s; white-space: nowrap;
         }
-        .lang-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.28); }
-        .lang-chevron { transition: transform 0.2s; opacity: 0.6; }
+        .lang-btn:hover { background: rgba(10,30,61,0.14); border-color: rgba(10,30,61,0.35); }
+        .lang-chevron { transition: transform 0.2s; opacity: 0.5; color: #0a1e3d; }
         .lang-chevron.open { transform: rotate(180deg); }
         .lang-dropdown {
           position: absolute; top: calc(100% + 8px); right: 0;
