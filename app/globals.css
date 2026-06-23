@@ -750,9 +750,15 @@ img {
 }
 
 .btn-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
+  width: auto;
+  min-width: 280px;
+  white-space: nowrap;
 }
 
 .deadline-box .accent-line {

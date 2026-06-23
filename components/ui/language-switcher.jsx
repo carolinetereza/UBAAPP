@@ -11,12 +11,11 @@ const FLAG_BR = () => (
   </svg>
 );
 
-const FLAG_ES = () => (
+const FLAG_AR = () => (
   <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="22" height="16" rx="2" fill="#c60b1e"/>
-    <rect y="4" width="22" height="8" fill="#ffc400"/>
-    <rect width="22" height="4" fill="#c60b1e"/>
-    <rect y="12" width="22" height="4" fill="#c60b1e"/>
+    <rect width="22" height="16" rx="2" fill="#74ACDF"/>
+    <rect y="5.33" width="22" height="5.33" fill="white"/>
+    <circle cx="11" cy="8" r="1.6" fill="#F6B40E"/>
   </svg>
 );
 
@@ -25,7 +24,7 @@ export function LanguageSwitcher({ lang, onSwitch }) {
 
   const options = [
     { code: 'pt', label: 'PT', Flag: FLAG_BR },
-    { code: 'es', label: 'ES', Flag: FLAG_ES },
+    { code: 'es', label: 'ES', Flag: FLAG_AR },
   ];
 
   const current = options.find(o => o.code === lang);
