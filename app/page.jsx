@@ -326,11 +326,9 @@ export default function Home() {
       {/* ═══════════════ FOOTER ═══════════════ */}
       <footer className="site-footer">
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
-            <img src="/images/uba_logo_new.png" alt="UBA APP" style={{ height: '70px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
-          </div>
           <div className="footer-grid">
             <div className="footer-brand">
+              <img src="/images/uba_logo_new.png" alt="UBA APP" style={{ height: '60px', objectFit: 'contain', filter: 'brightness(0) invert(1)', marginBottom: '24px' }} />
               <p>{t.footerBrandDesc}</p>
               <div className="social-links">
                 <a href="https://www.instagram.com/UBA_APP" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
