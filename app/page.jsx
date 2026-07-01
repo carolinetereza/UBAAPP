@@ -283,7 +283,7 @@ export default function Home() {
         <div className="deadline-overlay" />
         <div className="container deadline-content">
           <div className="deadline-box gsap-fade-up">
-            <h3>{t.deadlineText} <strong style={{ color: '#2774ae' }}>07/07/2026</strong></h3>
+            <h3>{t.deadlineText} <strong style={{ color: '#2774ae' }}>17/07/2026</strong></h3>
             <p>{t.deadlineAfter}</p>
             <div style={{ margin: '32px 0', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(39,116,174,0.5), transparent)' }} />
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '24px', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
